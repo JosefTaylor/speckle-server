@@ -191,6 +191,9 @@ export default class Coverter {
 
         return
       } catch {
+        Logger.warn(
+          `failed to traverse element - perhaps a bad speckle_type? ${obj.speckle_type}`
+        )
         return
       }
     }
