@@ -179,7 +179,7 @@ export default class Coverter {
       }
 
       // If this is a built element and has a display value, only iterate through the "elements" prop if it exists.
-      if (obj.speckle_type.toLowerCase().includes('builtelements')) {
+      try {
         if (obj['elements']) {
           childrenConversionPromisses.push(
             this.traverse(objectURL, obj['elements'], callback, childNode)
@@ -189,6 +189,8 @@ export default class Coverter {
           this.activePromises -= childrenConversionPromisses.length
         }
 
+        return
+      } catch {
         return
       }
     }
