@@ -48,7 +48,9 @@ export default class Batcher {
 
     for (let i = 0; i < materialHashes.length; i++) {
       const batch = this.buildBatch(subtreeId, rendeViews, materialHashes[i], batchType)
-      this.batches[batch.id] = batch
+      if (batch) {
+        this.batches[batch.id] = batch
+      }
     }
   }
 
